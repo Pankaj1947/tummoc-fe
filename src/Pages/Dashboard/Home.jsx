@@ -4,13 +4,13 @@ import { useNavigate } from "react-router-dom";
 import HamburgerNavbar from "../../Components/HamburgerNavbar";
 
 const Dashboard = () => {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
   const authDetails = JSON.parse(localStorage.getItem("authDetails"));
   let token = authDetails?.token;
 
-  useEffect(()=>{
-    fetch("http://localhost:8080/protected", {
+  useEffect(() => {
+    fetch("https://cyan-agile-walkingstick.cyclic.app/protected", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -18,7 +18,7 @@ const Dashboard = () => {
       },
     })
       .then(() => {
-        if(token){
+        if (token) {
           message.destroy();
           message.success(`Welcome ${authDetails?.userDetails?.name}`, 3);
         }
@@ -28,11 +28,10 @@ const Dashboard = () => {
         message.error("Unauthorized. Please Login!");
         navigate("/login");
       });
-
-  },[])
+  }, []);
   return (
     <div>
-      <HamburgerNavbar/>
+      <HamburgerNavbar />
       <h1>Welcome {authDetails?.userDetails?.name}</h1>
     </div>
   );

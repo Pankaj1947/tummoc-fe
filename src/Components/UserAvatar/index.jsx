@@ -37,7 +37,7 @@ const UserAvatar = () => {
         setTimeout(() => {
           navigate("/");
           const logoutfn = () => {
-            window.open("http://localhost:3000/login", "_self");
+            window.open("https://tummoc-deployed.netlify.app/login", "_self");
           };
           logoutfn();
         //   const logout = localStorage.removeItem("authDetails");

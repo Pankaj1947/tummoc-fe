@@ -16,7 +16,7 @@ const Signup = () => {
   function handleSignupForm(values) {
     console.log("values", values);
     setSignupFormLoading(true);
-    fetch("http://localhost:8080/signup", {
+    fetch("https://cyan-agile-walkingstick.cyclic.app/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -47,7 +47,10 @@ const Signup = () => {
   }
 
   const googleAuth = () => {
-    window.open("http://localhost:8080/auth/google/callback", "_self");
+    window.open(
+      "https://cyan-agile-walkingstick.cyclic.app/auth/google/callback",
+      "_self"
+    );
   };
 
   return (

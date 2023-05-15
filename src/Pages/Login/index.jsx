@@ -14,7 +14,7 @@ const Login = () => {
     console.log("values", values);
     setLoginFormLoading(true);
     axios
-      .post("http://localhost:8080/login", values)
+      .post("https://cyan-agile-walkingstick.cyclic.app/login", values)
       .then((response) => {
         console.log("Data", response.data);
         if (response.data.message === "Logged in successfully!") {
@@ -40,7 +40,10 @@ const Login = () => {
   }
 
   const googleAuth = () => {
-    window.open("http://localhost:8080/auth/google/callback", "_self");
+    window.open(
+      "https://cyan-agile-walkingstick.cyclic.app/auth/google/callback",
+      "_self"
+    );
   };
 
   return (
